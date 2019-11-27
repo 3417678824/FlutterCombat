@@ -37,10 +37,10 @@ class IndexPageState extends State<IndexPage> {
   ];
 
   int currentPage = 0;
-  var currentWidget;
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Color.fromRGBO(244, 255, 255, 1.0),
       bottomNavigationBar: BottomNavigationBar(
@@ -50,11 +50,10 @@ class IndexPageState extends State<IndexPage> {
         onTap: (index) {
           setState(() {
             currentPage = index;
-            currentWidget = mPages[index];
           });
         },
       ),
-      body: currentWidget,
+      body: mPages[currentPage],
     );
   }
 }
