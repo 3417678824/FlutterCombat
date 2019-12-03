@@ -1,5 +1,5 @@
-const serviceUrl = "http://v.jspang.com:8088/baixing/";
+const serviceUrl = "https://www.wanandroid.com/";
 
-const servicePath ={
-  "homePageContent" : serviceUrl +"banner/json",//首页轮播
+const servicePath = {
+  "homePageContent": serviceUrl + "banner/json", //首页轮播
 };

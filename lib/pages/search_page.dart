@@ -7,6 +7,7 @@ class SearchPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('搜索'),
       ),
+      body: Text("asd")
     );
   }
 }
