@@ -2,6 +2,7 @@ import 'package:flua/Bean/MineBean.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable, camel_case_types
 class itemMine extends StatelessWidget {
   MineBean mineBean;
 
@@ -42,7 +43,7 @@ class itemMine extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child: Icon(Icons.keyboard_arrow_right),
+            child: Icon(Icons.keyboard_arrow_right,color: Colors.grey,),
           ),
         ],
       ),

@@ -18,7 +18,7 @@ class PersonPageState extends State<PersonPage> {
     // TODO: implement initState
     super.initState();
     items = new List<MineBean>();
-    items.add(MineBean("个人资料", Icon(Icons.person)));
+    items.add(MineBean("个人资料", Icon(Icons.person, color: Colors.grey)));
     items.add(MineBean("公告", Icon(Icons.person, color: Colors.white)));
     items.add(MineBean("分享邀请", Icon(Icons.person, color: Colors.white)));
     items.add(MineBean("安全中心", Icon(Icons.person, color: Colors.white)));

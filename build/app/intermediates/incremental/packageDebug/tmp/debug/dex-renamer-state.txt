@@ -1,0 +1,4 @@
+#Wed Dec 04 09:45:42 CST 2019
+base.0=/Users/zhaoyiming/My projects/FlutterCombat/build/app/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
