@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flua/Bean/MineBean.dart';
+import 'package:flua/Utils/ShowToast.dart';
 import 'package:flua/Widgets/item_mine.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class PersonPageState extends State<PersonPage> {
     super.initState();
     items = new List<MineBean>();
     items.add(MineBean("个人资料", Icon(Icons.person, color: Colors.grey)));
+    items.add(MineBean("个人资料", Icon(Icons.person, color: Colors.grey)));
     items.add(MineBean("公告", Icon(Icons.person, color: Colors.white)));
     items.add(MineBean("分享邀请", Icon(Icons.person, color: Colors.white)));
     items.add(MineBean("安全中心", Icon(Icons.person, color: Colors.white)));
@@ -30,14 +32,6 @@ class PersonPageState extends State<PersonPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize:
-            Size.fromHeight(MediaQueryData.fromWindow(window).padding.top),
-        child: SafeArea(
-          top: true,
-          child: Offstage(),
-        ),
-      ),
       body: Container(
           width: double.infinity,
           decoration: BoxDecoration(
@@ -50,12 +44,41 @@ class PersonPageState extends State<PersonPage> {
               if (index == 0) {
                 return mineHead();
               } else {
-                return itemMine(items[index]);
+                return GestureDetector(
+                  child: itemMine(items[index]),
+                  onTap: () {
+                    switch (items[index].title) {
+                      case "个人资料":
+                       Toasty.center("个人资料");
+                        break;
+                      case "公告":
+                        Toasty.normal("公告");
+                        break;
+                      case "分享邀请":
+                        Toasty.normal("分享邀请");
+                        break;
+                      case "安全中心":
+                        Toasty.normal("安全中心");
+                        break;
+                      case "收款方式":
+                        Toasty.normal("公收款方式告");
+                        break;
+                      case "实名认证":
+                        Toasty.normal("实名认证");
+                        break;
+                      case "客服/联系我们":
+                        Toasty.normal("客服/联系我们");
+                        break;
+                    }
+                  },
+                );
               }
             },
           )),
     );
   }
+
+  //弹个吐司
 
   //头布局
   Widget mineHead() {

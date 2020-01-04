@@ -167,42 +167,35 @@ class CarPageState extends State<CarPage> {
             ),
           ),
           Container(
-              //宽度
-              width: double.infinity,
-              height: 50,
-              // 盒子样式
-              decoration: new BoxDecoration(
-                //设置Border属性给容器添加边框
-                border: new Border(
-                  top: BorderSide(
-                    color: const Color(0xffF4E39F),
-                    //边框宽度
-                    width: 1,
-                  ),
+            //宽度
+            width: double.infinity,
+            height: 50,
+            // 盒子样式
+            decoration: new BoxDecoration(
+              //设置Border属性给容器添加边框
+              border: new Border(
+                top: BorderSide(
+                  color: const Color(0xffF4E39F),
+                  //边框宽度
+                  width: 1,
                 ),
               ),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: ColumnBtnList(mList[0]),
-                  ),
-                  Expanded(
-                    child: ColumnBtnList(mList[1]),
-                  ),
-                  Expanded(
-                    child: ColumnBtnList(mList[2]),
-                  ),
-                  Expanded(
-                    child: ColumnBtnList(mList[3]),
-                  ),
-                  Expanded(
-                    child: ColumnBtnList(mList[4]),
-                  )
-                ],
-              )),
+            ),
+            child: returnItem(),
+          ),
         ],
       ),
     );
+  }
+
+  Widget returnItem() {
+    List<Widget> mWidget = new List();
+    for (int i = 0; i < mList.length; i++) {
+      mWidget.add(Expanded(
+        child: ColumnBtnList(mList[i]),
+      ));
+    }
+    return Row(children: mWidget);
   }
 
   Widget tabList() {
@@ -242,8 +235,8 @@ class CarPageState extends State<CarPage> {
                 margin: EdgeInsets.all(10),
                 child: TabBarView(
                   children: <Widget>[
-                    ListViewContnet(),
-                    ListViewContnet(),
+                    ListViewContext(),
+                    ListViewContext(),
                   ],
                 ),
                 decoration: BoxDecoration(
@@ -262,46 +255,45 @@ class CarPageState extends State<CarPage> {
   }
 }
 
-class ListViewContnet extends StatelessWidget {
+class ListViewContext extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
       children: <Widget>[
-        itemBottom(),
-        itemBottom(),
-        itemBottom(),
+        itemBottom("时间", "价格", "币种"),
+        itemBottom("2019年12月07日09:51:27", "200", "比特币"),
+        itemBottom("2019年12月07日09:51:27", "300", "莱特币"),
+        itemBottom("2019年12月07日09:51:27", "349", "新月比"),
       ],
     );
   }
 
-  Widget itemBottom() {
+  Widget itemBottom(String time, String price, String bCoin) {
     return Container(
-      color: Colors.red,
       child: Row(
         children: [
           Expanded(
-            flex: 1,
             child: Center(
               child: Text(
-                "时间",
+                time,
+                textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white),
               ),
             ),
           ),
           Expanded(
-            flex: 1,
             child: Center(
               child: Text(
-                "价格",
+                price,
                 style: TextStyle(color: Colors.white),
               ),
             ),
           ),
           Expanded(
-            flex: 1,
             child: Center(
               child: Text(
-                "币种",
+                bCoin,
                 style: TextStyle(color: Colors.white),
               ),
             ),
